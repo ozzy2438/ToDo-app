@@ -1,0 +1,220 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #2c3e50;
+    --background-color: #f0f2f6;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: url('image/1background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;
+    animation: changeBackground 30s infinite;
+};
+.title, .page-title {
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.page-title {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.page-title:hover::after {
+    transform: scaleX(1);
+}
+
+.sidebar-title {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.stButton > button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.stButton > button:hover {
+    background-color: darken(var(--primary-color), 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.priority-high {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.priority-medium {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.priority-low {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.stProgress > div > div {
+    background-color: var(--primary-color);
+    background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+    background-size: 1rem 1rem;
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+.stSelectbox, .stTextInput > div > div > input, .stTextArea textarea, .stDateInput > div > div > input {
+    color: var(--text-color);
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+    transition: all 0.3s;
+}
+
+.stSelectbox:hover, .stTextInput > div > div > input:hover, .stTextArea textarea:hover, .stDateInput > div > div > input:hover {
+    border-color: var(--primary-color);
+}
+
+.stMultiSelect > div > div > div {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.stTags > div > div > input {
+    color: var(--text-color);
+}
+
+.stExpander {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+}
+
+.stExpander:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.title::before {
+    content: '🧠';
+    display: inline-block;
+    margin-right: 10px;
+    animation: rotate 5s linear infinite;
+}
+
+@media (min-width: 768px) {
+    .stApp {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
+.stExpander {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23ecf0f1" width="50" height="50" x="0" y="0"/><rect fill="%23bdc3c7" width="50" height="50" x="50" y="50"/></svg>');
+    background-size: 20px 20px;
+}
+
+button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.calendar-container {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar {
+    margin-bottom: 20px;
+}
+
+.calendar-row {
+    display: flex;
+}
+
+.calendar-cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.calendar-header {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.calendar-header {
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+}
+
+@keyframes changeBackground {
+    0%, 100% { background-image: url('1background.jpg'); }
+    33% { background-image: url('2background.jpg'); }
+    66% { background-image: url('3background.jpg'); }
+}
+
+.calendar-item {
+    margin-top: 5px;
+}
